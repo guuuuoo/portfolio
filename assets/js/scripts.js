@@ -263,35 +263,3 @@ $(function () {
 });
 
 
-//---------------------------------------------------------------
-// slide
-//---------------------------------------------------------------
-const main = document.querySelector("#slide-section");
-const group = document.querySelector("#slide-group");
-
-for (let i = 0; i < 4; i++) {
-    if (i > 0) {
-        const clone = group.cloneNode(true);
-        const path = clone.querySelector(".shape");
-        path.id = "shape" + (i + 1);
-        main.append(clone);
-    }
-}
-
-gsap.set(".morph-shapeIndex", {
-    innerHTML: (i) => ["default", "3", "6", "9"][i]
-});
-
-gsap.to(".shape", {
-    delay: (i) => i * 0.25,
-    duration: 2,
-    ease: "power3.inOut",
-    yoyo: true,
-    repeat: -1,
-    morphSVG: (i) => [
-        { shape: "#shapeNew" },
-        { shape: "#shapeNew" },
-        { shape: "#shapeNew" },
-        { shape: "#shapeNew" }
-    ][i]
-});
