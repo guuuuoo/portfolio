@@ -1,25 +1,4 @@
-/*
-Theme Name: IAMX
-Author: Trendy Theme
-Author URL: trendytheme.net
-*/
 
-/*
-    = Preloader
-    = Animated scrolling / Scroll Up
-    = Full Screen Slider
-    = Sticky Menu
-    = Back To Top
-    = Countup
-    = Progress Bar
-    = More skill
-    = Shuffle
-    = Magnific Popup
-    = Vidio auto play
-    = Fit Vids
-    = Google Map
-
-*/
 
 jQuery(function ($) {
 
@@ -91,9 +70,6 @@ jQuery(function ($) {
     });
 
 
-
-
-
     // -------------------------------------------------------------
     // Progress Bar
     // -------------------------------------------------------------
@@ -129,37 +105,6 @@ jQuery(function ($) {
             $(this).unbind('inview');
         }
     });
-
-
-
-    // -------------------------------------------------------------
-    // Fit Vids
-    // -------------------------------------------------------------
-    // (function () {
-    //     $(".video-container").fitVids();
-    // }());
-
-
-
-    // // -------------------------------------------------------------
-    // // Vidio auto play
-    // // -------------------------------------------------------------
-    // (function () {
-
-    //     /* Vimeo API: http://developer.vimeo.com/player/js-api */
-
-    //     var iframe = document.getElementById('nofocusvideo');
-    //     // $f == Froogaloop
-    //     var player = $f(iframe);
-
-    //     $('.modal').on('hidden.bs.modal', function () {
-    //         player.api('pause');
-    //     })
-
-    //     $('.modal').on('shown.bs.modal', function () {
-    //         player.api('play');
-    //     })
-    // }());
 
 
 
@@ -200,11 +145,15 @@ jQuery(function ($) {
     //---------------------------------------------------------------
     //Artworks JS
     //---------------------------------------------------------------
+
     const items = document.querySelectorAll('.portfolio-item')
     function expand(item, i) {
         items.forEach((it, ind) => {
             if (i === ind) return;
             it.clicked = false;
+
+            const worktext = it.querySelector('.works-text');
+            if (worktext) worktext.style.opacity = "0";
         });
         gsap.to(items, {
             width: item.clicked ? '24%' : '10%',
@@ -214,36 +163,46 @@ jQuery(function ($) {
 
         item.clicked = !item.clicked;
         gsap.to(item, {
+
             width: item.clicked ? '70%' : '24%',
             duration: 1.5,
-            ease: 'elastic(1, .6)'
+            ease: 'elastic(1, .6)',
+            onStart: () => {
+                const worktext = item.querySelector('.works-text');
+                if (worktext) worktext.style.opacity = item.clicked ? '1' : '0';
+            },
         });
+
     };
 
     items.forEach((item, i) => {
         item.clicked = false
         item.addEventListener('click', () => expand(item, i))
     });
-
-
-    // -------------------------------------------------------------
-    // Popup JS
-    // -------------------------------------------------------------
-
-    $(function () {
-        $('#popup01').click(function () {
-            $('#pop01').show();
-        });
-        $('#popup02').click(function () {
-            $('#pop02').show();
-        });
-
-        $('.popup i').click(function () {
-            $('.popup').hide();
-        });
-    });
-
 });
+
+//---------------------------------------------------------------
+//Artworks JS 2
+//---------------------------------------------------------------
+var swiper = new Swiper(".snsbox", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+});
+var swiper2 = new Swiper(".snsbox2", {
+    spaceBetween: 10,
+    thumbs: {
+        swiper: swiper,
+    },
+});
+
+
+// -------------------------------------------------------------
+// Slide Section
+// -------------------------------------------------------------
+gsap.registerPlugin(ScrollTrigger);
+
 
 // -------------------------------------------------------------
 // Scroll up
@@ -258,5 +217,93 @@ $(function () {
 $(function () {
     $(".up_img").mouseleave(function () {
         $(this).toggleClass("up_img_rotate");
+    });
+});
+
+
+// -------------------------------------------------------------
+// Contact Section con
+// -------------------------------------------------------------
+$(function () {
+    $(".con-left, .con-right").on({
+        mouseleave: function () { $(this).children(".con_hover").removeClass("con_click") },
+        click: function () { $(this).children(".con_hover").toggleClass("con_click") }
+    });
+});
+
+
+// -------------------------------------------------------------
+// Portfolio Btn Cursor
+// -------------------------------------------------------------
+const targetDiv1 = document.getElementById("portfolio")
+const cursor = targetDiv1.querySelector('#cursor');
+const cursorCircle = cursor.querySelector('.cursor__circle');
+
+const mouse = { x: -100, y: -100 }; // mouse pointer's coordinates
+const pos = { x: 0, y: 0 }; // cursor's coordinates
+const speed = 0.1; // between 0 and 1
+
+const updateCoordinates = e => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+}
+
+targetDiv1.addEventListener('mousemove', updateCoordinates);
+
+targetDiv1.addEventListener('mouseenter', function () {
+    cursor.style.display = "block";
+});
+
+targetDiv1.addEventListener('mouseleave', function () {
+    cursor.style.display = "none";
+});
+
+function getAngle(diffX, diffY) {
+    return Math.atan2(diffY, diffX) * 180 / Math.PI;
+}
+
+function getSqueeze(diffX, diffY) {
+    const distance = Math.sqrt(
+        Math.pow(diffX, 2) + Math.pow(diffY, 2)
+    );
+    const maxSqueeze = 0.15;
+    const accelerator = 1500;
+    return Math.min(distance / accelerator, maxSqueeze);
+}
+
+const updateCursor = () => {
+    const diffX = Math.round(mouse.x - pos.x);
+    const diffY = Math.round(mouse.y - pos.y);
+
+    pos.x += diffX * speed;
+    pos.y += diffY * speed;
+
+    const angle = getAngle(diffX, diffY);
+    const squeeze = getSqueeze(diffX, diffY);
+
+    const scale = 'scale(' + (1 + squeeze) + ', ' + (1 - squeeze) + ')';
+    const rotate = 'rotate(' + angle + 'deg)';
+    const translate = 'translate3d(' + pos.x + 'px ,' + pos.y + 'px, 0)';
+
+    cursor.style.transform = translate;
+    cursorCircle.style.transform = rotate + scale;
+};
+
+function loop() {
+    updateCursor();
+    requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+
+const cursorModifiers = targetDiv1.querySelectorAll('a');
+
+cursorModifiers.forEach(curosrModifier => {
+    curosrModifier.addEventListener('mouseenter', function () {
+        cursor.classList.add('cursor_on');
+    });
+
+    curosrModifier.addEventListener('mouseleave', function () {
+        cursor.classList.remove('cursor_on');
     });
 });
