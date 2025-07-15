@@ -8,8 +8,9 @@ body{
 
 /* 배경색상 */
 .brand1{
-    background-color: #dbd4d0;
+    background: linear-gradient(to bottom, #f0ede5 0%, #212c54 100%);
 }
+
 
 /* 이미지 크기 */
 img{
@@ -37,14 +38,14 @@ img{
 	display: inline-block;
 	padding: 10px 20px;
 	border-radius: 10px;
-	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-	background: #fff;
-	color: #6a5445;
-	border: 2px solid #6a5445;
+	box-shadow: 2px 2px 5px rgba(17, 17, 17, 0.3);
+	background: #f0ede5;
+	color: #333;
+	border: 2px solid #161f41;
 	font-weight: bold;
 }
 
 .btn_1 li a:hover{
-	background-color: #6a5445;
-	color: #fff;
+	background-color: #161f41;
+	color: #f0ede5;
 }
