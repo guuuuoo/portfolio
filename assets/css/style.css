@@ -1,28 +1,3 @@
-/*
-    Author: TrendyTheme
-    Template: I AM X
-    Version: 1.2
-    URL: http://demo.trendytheme.net/iamx/html
-*/
-
-
-/*
-====================================
-------------------------------------
-    1. General
-    2. Typography
-    3. Home
-    4. Navigation
-    5. About
-    6. Portfolio
-    7. Artwork
-    8. Resume
-    9. Skill
-    10. Chart
-    11. Footer
--------------------------------------
-=====================================
-*/
 html {
     scroll-behavior: smooth;
 }
@@ -49,7 +24,7 @@ html {
 /* Link style
 ---------------------------------------------------------*/
 a {
-    color: #68c3a3;
+    color: #333;
 }
 
 a,
@@ -474,7 +449,6 @@ ul.list-check {
     outline: 0;
     color: #1C4655;
     font-weight: 700;
-    background-image: url(../images/nav_on.png);
     background-position: center bottom;
 }
 
@@ -534,16 +508,23 @@ ul.list-check {
     border-radius: 30px 30px 30px 0;
 }
 
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 .star_spin {
     position: absolute;
     width: 15rem;
     height: 15rem;
-    bottom: -4rem;
+    bottom: -3rem;
     left: -7rem;
-}
-
-.star_spin:hover::after {
-    transform: rotate(360deg);
+    animation: spin 10s linear infinite;
 }
 
 .mobile_about {
@@ -592,10 +573,6 @@ ul.list-check {
     left: 50%;
     z-index: 33;
     transform: translate(-50%, -50%);
-}
-
-.post_img {
-    transform: scale(1.5) translate(0, 30px);
 }
 
 .entry-title h2 {
@@ -673,16 +650,35 @@ Icon for all respective meta
 
 
 /* === Artwork Section === */
-
 .works-section h3 {
     text-align: center;
     padding-bottom: 20px;
 }
 
+.section-sub-title {
+    padding-bottom: 20px;
+}
+
+.section-sub-title::after {
+    content: "\2727";
+    margin-left: 5px;
+}
+
 .group {
+    min-width: 0;
     display: flex;
     justify-content: space-between;
     text-align: center;
+}
+
+.group2 {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+.group2 h2 {
+    width: 100%;
 }
 
 .works-item1 {
@@ -702,6 +698,7 @@ Icon for all respective meta
 }
 
 .portfolio-item {
+    min-width: 0;
     width: 24%;
     height: 40vh;
     background-position: center, center;
@@ -710,13 +707,49 @@ Icon for all respective meta
     border-radius: 2vw;
     display: inline-block;
     cursor: pointer;
+    position: relative;
 }
 
-.portfolio {
+.works-text {
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    bottom: -20%;
+    transform: translateX(-50%);
+}
+
+.snsbox img {
+    display: block;
+}
+
+.swiper {
+    max-width: 600px;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+.snsbox2 {
+    display: flex;
+}
+
+.snsbox {
+    background-color: #F4F5F6;
+}
+
+.sns-text h5 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.sns-text {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+#portfolio {
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    height: 320px;
 }
 
 .portfolio-info,
@@ -861,28 +894,31 @@ Icon for all respective meta
 
 /* === slideup === */
 #slide-section {
-    top: 100vh;
-    border: 1px solid red;
-    position: absolute;
+    position: relative;
+    padding: 0;
+    height: 40vh;
     display: flex;
-    z-index: -1;
-    align-items: center;
-    gap: 50px;
+    border: 1px solid red;
 }
 
-#slide-group {
-    display: inline-block;
+.slideup {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    transform: translateX(-50%) !important;
 }
 
-#svg-stage {
-    overflow: visible;
-    width: 100px;
+.slideup1 {
+    left: 30%;
 }
 
-.cls-1 {
-    fill: url(#linear-gradient);
+.slideup2 {
+    left: 50%;
 }
 
+.slideup3 {
+    left: 70%;
+}
 
 /* === Resume Section === */
 
@@ -1027,7 +1063,14 @@ Resume Timeline
 
 /* == contact == */
 #contact {
-    padding: 50px 0;
+    padding: 100px 0 100px;
+    background: url(../images/contact_back.jpg) center top;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#contact>.container {
+    margin-top: 400px;
 }
 
 #contact h1 {
@@ -1036,6 +1079,7 @@ Resume Timeline
 
 .contact_flex {
     text-align: center;
+    align-items: center;
     display: flex;
     justify-content: space-around;
     font-family: 'Noto Sans KR';
@@ -1047,12 +1091,55 @@ Resume Timeline
 
 .contact_flex h5 {
     font-weight: bold;
-    margin: 20px 0 5px;
+    margin: 10px 0 5px;
 }
 
 .contact_flex p {
     font-size: 14px;
     font-weight: 500;
+}
+
+.con-left,
+.con-right {
+    border-radius: 10px;
+    padding-top: 8px;
+    width: 260px;
+    height: 148px;
+    overflow: hidden;
+    position: relative;
+}
+
+.con-left:hover,
+.con-right:hover {
+    background-color: rgba(255, 250, 239, 0.7);
+}
+
+.con_icon_L,
+.con_icon_R {
+    display: inline-block;
+    transition: 0.8s;
+}
+
+.con_hover {
+    top: -150%;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    transition: 0.8s;
+}
+
+.con-left:hover .con_icon_L,
+.con-right:hover .con_icon_R {
+    transform: translateY(-150%);
+}
+
+.con-left:hover .con_hover,
+.con-right:hover .con_hover {
+    top: 6%;
+}
+
+.con_click {
+    transform: rotateY(180deg) translateX(50%);
 }
 
 
@@ -1098,42 +1185,20 @@ Resume Timeline
 }
 
 .timeline>li .timeline-content:hover {
-    /* background: #1C4655; */
     color: #F48F38;
-    /* color: #1C4655; */
 }
 
 .timeline>li .timeline-content:hover .timeline-heading {
-    /* color: #F48F38; */
     color: #1C4655;
 
 }
 
 .timeline>li .timeline-content:hover .timeline-body p,
 .timeline>li .timeline-content:hover .timeline-body b {
-    /* color: #1C4655; */
     color: #F48F38;
 
 }
 
-
-/* .timeline>li .timeline-panel::before,
-    .timeline>li.timeline-inverted .timeline-panel::before {
-        content: "";
-        top: 25px;
-        position: absolute;
-        border-top: 10px solid transparent;
-        border-bottom: 10px solid transparent;
-    } */
-
-/* .timeline>li .timeline-panel::before {
-        left: 100%;
-        border-left: 12px solid #eee;
-        -webkit-transition: all 400ms;
-        -moz-transition: all 400ms;
-        -o-transition: all 400ms;
-        transition: all 400ms;
-    } */
 
 .timeline>li .timeline-panel:hover::before {
     border-left: 12px solid #1C4655;
@@ -1194,9 +1259,7 @@ Resume Timeline
 }
 
 .timeline>li .posted-date {
-    /* left: 50%; */
     width: 120px;
-    /* margin-left: -60px; */
     margin-top: 28px;
 }
 
@@ -1384,7 +1447,6 @@ Resume Timeline
 .mfp-with-zoom.mfp-removing.mfp-bg {
     opacity: 0;
 }
-
 
 /* === Footer Wrapper === */
 .footer-wrapper {
@@ -1737,4 +1799,51 @@ Resume Timeline
     border: 5px solid #FFF;
     padding: 5px;
     box-shadow: 0 0px 0px 1px #eee;
+}
+
+/* Cursor */
+
+
+#cursor {
+    position: fixed;
+    z-index: 99;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    will-change: transform;
+    mix-blend-mode: difference;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .cursor__circle {
+        width: 64px;
+        height: 64px;
+        margin-top: -50%;
+        margin-left: -50%;
+        border-radius: 50%;
+        border: solid 1px rgba(7, 48, 153, 0.7);
+        transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            background-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            border-color 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            width 0.3s cubic-bezier(0.25, 1, 0.5, 1),
+            height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    #cursor.cursor_on .cursor__circle {
+        width: 128px;
+        height: 128px;
+        background-color: #073099;
+        border-color: #073099;
+    }
+
+    #cursor.subtle .cursor__circle {
+        opacity: 0.16;
+    }
+
+    #cursor.overlay .cursor__circle {
+        width: 48px;
+        height: 48px;
+        background-color: rgba(227, 222, 193, 0.08);
+        border-color: transparent;
+    }
 }
