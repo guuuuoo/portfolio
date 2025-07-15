@@ -1,11 +1,47 @@
 body {
 	font-family: 'Pretendard';
 	overflow: hidden;
-	background: url(../pics/ebook_bg.jpg) no-repeat center top;/* 배경 */
+	background: url(../pics/ebook_bg.jpg) no-repeat center top;
+	/* 배경 */
 	background-size: cover;
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	position: relative;
 }
+
+/* 배경꾸밈 */
+.back img {
+	display: block;
+	position: absolute;
+	z-index: -99;
+}
+
+.back img:nth-child(1) {
+	width: 150px;
+	top: 15%;
+	left: 5%;
+}
+
+.back img:nth-child(2) {
+	width: 100px;
+	top: 100px;
+	right: 10%;
+}
+
+.back img:nth-child(3) {
+	width: 100px;
+	bottom: 16%;
+	right: 20%;
+}
+
+.back img:nth-child(4) {
+	width: 100px;
+	bottom: 20%;
+	left: 15%;
+}
+
+
 
 /* 버튼 */
 .btn_1 {
@@ -19,16 +55,16 @@ body {
 	padding: 10px 20px;
 	border-radius: 10px;
 	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
-	background: #fff;
-	border: 2px solid #44584c;
-	color: #44584c;
+	background: #f0ede5;
+	border: 2px solid #161f41;
+	color: #161f41;
 	font-weight: bold;
 	text-decoration: none;
 }
 
-.btn_1:hover{
-	background-color: #44584c;
-	color: #fff;
+.btn_1:hover {
+	background-color: #161f41;
+	color: #f0ede5;
 }
 
 .magazine-viewport .container {
@@ -117,12 +153,12 @@ body {
 	width: 100%;
 	height: 100%;
 
-	background: -webkit-gradient(linear, left top, right top, color-stop(0.95, rgba(0, 0, 0, 0)), color-stop(1, rgba(0, 0, 0, 0.2)));
-	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
-	background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
-	background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
-	background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
-	background-image: linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.2) 100%);
+	background: -webkit-gradient(linear, left top, right top, color-stop(0.95, rgba(0, 0, 0, 0)), color-stop(1, rgba(67, 78, 96, 0.2)));
+	background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: -o-linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: linear-gradient(left, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
 }
 
 .magazine .odd .gradient {
@@ -132,19 +168,17 @@ body {
 	width: 100%;
 	height: 100%;
 
-	background: -webkit-gradient(linear, right top, left top, color-stop(0.95, rgba(0, 0, 0, 0)), color-stop(1, rgba(0, 0, 0, 0.15)));
-	background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
-	background-image: -moz-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
-	background-image: -ms-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
-	background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
-	background-image: linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 0.15) 100%);
+	background: -webkit-gradient(linear, right top, left top, color-stop(0.95, rgba(0, 0, 0, 0)), color-stop(1, rgba(67, 78, 96, 0.2)));
+	background-image: -webkit-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: -moz-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: -ms-linear-gradient(lrighteft, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: -o-linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
+	background-image: linear-gradient(right, rgba(0, 0, 0, 0) 95%, rgba(67, 78, 96, 0.2) 100%);
 }
 
 .magazine-viewport .zoom-in .even .gradient,
 .magazine-viewport .zoom-in .odd .gradient {
-
 	display: none;
-
 }
 
 .magazine-viewport .loader {
@@ -162,11 +196,11 @@ body {
 	-o-transition: -webkit-box-shadow 0.5s;
 	-ms-transition: -ms-box-shadow 0.5s;
 
-	-webkit-box-shadow: 0 0 20px #ccc;
-	-moz-box-shadow: 0 0 20px #ccc;
-	-o-box-shadow: 0 0 20px #ccc;
-	-ms-box-shadow: 0 0 20px #ccc;
-	box-shadow: 0 0 20px #ccc;
+	-webkit-box-shadow: 0 0 20px #85a4e78c;
+	-moz-box-shadow: 0 0 20px #85a4e78c;
+	-o-box-shadow: 0 0 20px #85a4e78c;
+	-ms-box-shadow: 0 0 20px #85a4e78c;
+	box-shadow: 0 0 20px #85a4e78c;
 }
 
 .magazine-viewport .next-button,
@@ -379,7 +413,7 @@ body {
 	height: 22px;
 	top: 10px;
 	right: 10px;
-	background-image: url(../pics/zoom-icons.png);
+	background-image: url(../pics/zoom-icons-editable.png);
 	background-size: 88px 22px;
 }
 
