@@ -694,7 +694,7 @@ Icon for all respective meta
 }
 
 .works-item4 {
-    background-image: url(../images/artwork_1.png), url(../images/artwork_1_back.png);
+    background-image: url(../images/artwork_4.png), url(../images/artwork_4_back.png);
 }
 
 .portfolio-item {
@@ -895,28 +895,44 @@ Icon for all respective meta
 /* === slideup === */
 #slide-section {
     position: relative;
-    padding: 0;
-    height: 40vh;
-    display: flex;
+    padding: 50px 0;
+}
+
+@keyframes bounce {
+    0%{
+        transform: translateX(-50%) translateY(0) rotate(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-35px) rotate(180deg);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(0) rotate(360deg);
+    }
 }
 
 .slideup {
+    animation: bounce 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
     position: absolute;
+    align-self: center;
     height: 50px;
     width: 50px;
-    transform: translateX(-50%) !important;
+    transform: translateX(-50%);
 }
 
 .slideup1 {
     left: 30%;
+    animation-delay: 0s;
 }
 
 .slideup2 {
     left: 50%;
+    animation-delay: 0.25s;
 }
 
 .slideup3 {
     left: 70%;
+    animation-delay: 0.45s;
 }
 
 /* === Resume Section === */
