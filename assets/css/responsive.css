@@ -54,6 +54,12 @@
 	}
 
 
+	/* Portfolio Section */
+	.post_img {
+		transform: scale(1.5);
+	}
+
+
 	/*  Popup Section */
 	.popup_in {
 		height: 80vh;
@@ -72,6 +78,7 @@
 		top: -40px;
 		color: #F48F38;
 	}
+
 
 	/*resume*/
 	.resume:before,
@@ -503,6 +510,14 @@
 /* Medium devices (desktops, 992px and up) */
 @media(min-width : 992px) {
 
+	.navbar-custom .nav li.active,
+	.navbar-custom .nav li a:hover,
+	.navbar-custom .nav li a:focus,
+	.navbar-custom .navbar-nav>li.active>a {
+		background-image: url(../images/nav_on.png);
+
+	}
+
 	.main_banner {
 		display: none;
 	}
@@ -542,7 +557,7 @@
 		font-weight: 500;
 	}
 
-	ul.list-check li::before{
+	ul.list-check li::before {
 		content: "#";
 	}
 
@@ -584,6 +599,8 @@
 		transform: translate(0, 0);
 	}
 
+
+	/* Skill Section */
 	.row_skill {
 		padding-left: 50px;
 	}
@@ -592,6 +609,8 @@
 		font-size: 16px;
 	}
 
+
+	/* Contact Section */
 	.contact_flex {
 		text-align: left;
 	}
@@ -602,10 +621,34 @@
 
 	.con-left,
 	.con-right {
+		width: 300px;
 		align-items: center;
 		display: flex;
+		padding: 0 30px;
 	}
 
+	.con_hover {
+		top: 50%;
+		left: -100%;
+		transform: translateY(-50%);
+	}
+
+	.con-left:hover .con_icon_L,
+	.con-right:hover .con_icon_R {
+		transform: translateX(-160%);
+	}
+
+	.con-left:hover .con_hover,
+	.con-right:hover .con_hover {
+		left: 10%;
+		top: 50%;
+	}
+
+	.con_click {
+		transform: rotateY(180deg) translateY(-50%);
+	}
+
+	/* Resume Section */
 	.resume-right .col-md-6,
 	.resume-left .col-md-6,
 	.resume-right .col-md-12,
@@ -615,9 +658,9 @@
 
 	.progress-bar span {
 		display: none;
-
 	}
 
+	/* Nav Section */
 	.navbar-nav {
 		margin-left: 0;
 		width: 100%;
@@ -629,6 +672,4 @@
 	.navbar-nav>li {
 		flex: 1;
 	}
-
-	
 }
