@@ -144,7 +144,7 @@ jQuery(function ($) {
 
 
     //---------------------------------------------------------------
-    //Artworks JS
+    //Artworks -Drawing
     //---------------------------------------------------------------
 
     const items = document.querySelectorAll('.portfolio-item')
@@ -183,7 +183,7 @@ jQuery(function ($) {
 });
 
 //---------------------------------------------------------------
-//Artworks JS 2
+//Artworks -SNS
 //---------------------------------------------------------------
 var swiper = new Swiper(".snsbox", {
     spaceBetween: 10,
@@ -196,8 +196,44 @@ var swiper2 = new Swiper(".snsbox2", {
     thumbs: {
         swiper: swiper,
     },
+    on: {
+        slideChange: function () {
+            const currentSlide = this.realIndex + 1;
+            const totalSlides = this.slides.length;
+            document.querySelector('.slide-counter').textContent = `${currentSlide} / ${totalSlides}`;
+        }
+    }
 });
 
+//---------------------------------------------------------------
+//Artworks -Photography
+//---------------------------------------------------------------
+const postPhoto = document.querySelector('.photo-slider');
+const photo_img = postPhoto.querySelectorAll('img');
+
+photo_img.forEach(photo => {
+    const clone = photo.cloneNode(true);
+    postPhoto.appendChild(clone);
+});
+
+let current = 0;
+const total = photo_img.length;
+
+function moveSlide() {
+    current++;
+    postPhoto.style.transform = `translateX(-${current * 100}%)`;
+
+    if (current >= total) {
+        setTimeout(() => {
+            postPhoto.style.transition = 'none';
+            postPhoto.style.transform = 'translateX(0)';
+            current = 0;
+            setTimeout(() => postPhoto.style.transition = 'transform 0.5s linear', 50);
+        }, 500);
+    }
+};
+
+setInterval(moveSlide, 3000);
 
 
 // -------------------------------------------------------------
