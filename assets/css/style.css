@@ -655,6 +655,7 @@ Icon for all respective meta
 }
 
 .section-sub-title {
+    text-align: left;
     padding-bottom: 20px;
     margin: 0;
 }
@@ -769,7 +770,7 @@ Icon for all respective meta
 /* photo */
 
 .Photography{
-    padding-top: 100px;
+    padding-top: section-sub-title;
 }
 
 .post_Photography {
