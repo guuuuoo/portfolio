@@ -75,10 +75,7 @@ a,
 }
 
 
-
-
 /* === Typography === */
-
 h1,
 h2,
 h3,
@@ -284,9 +281,6 @@ ul.list-check li:nth-child(4) {
 ul.list-check {
     display: flex;
 }
-
-/* ul.list-check li::before {
-} */
 
 
 /* === MAIN === */
