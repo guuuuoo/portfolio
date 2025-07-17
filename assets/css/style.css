@@ -260,7 +260,7 @@ ol {
 
 ul.list-check li {
     position: relative;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 17px;
     color: #1C4655;
     font-family: 'Noto Sans KR';
@@ -752,7 +752,11 @@ Icon for all respective meta
 }
 
 .snsbox {
-    background-color: #F4F5F6;
+    /* background-color: #1C4655; */
+}
+
+.snsbox img{
+    display: block;
 }
 
 .sns-text h5 {
