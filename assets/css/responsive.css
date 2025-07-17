@@ -3,7 +3,6 @@
 	.m-skill {
 		margin-bottom: 60px;
 	}
-
 }
 
 /* Extra small devices (phones, less than 768px) */
@@ -46,7 +45,6 @@
 	}
 
 	ul.list-check li {
-		font-size: 13px;
 		width: 100%;
 	}
 
@@ -557,6 +555,7 @@
 	}
 
 	ul.list-check li {
+		font-size: 14px;
 		padding: 0;
 		border: none;
 		text-align: left;
