@@ -680,12 +680,8 @@ Icon for all respective meta
 }
 
 .group2 h2 {
-    padding: 30px 0;
+    padding-bottom: 30px;
     width: 100%;
-}
-
-.Photography {
-    margin: 100px 0 0;
 }
 
 
@@ -726,6 +722,7 @@ Icon for all respective meta
     transform: translateX(-50%);
 }
 
+/* -sns */
 .snsbox img {
     display: block;
 }
@@ -736,7 +733,7 @@ Icon for all respective meta
     box-sizing: border-box;
 }
 
-.slide-counter{
+.slide-counter {
     mix-blend-mode: multiply;
     position: absolute;
     top: 25px;
@@ -767,9 +764,8 @@ Icon for all respective meta
     width: 100%;
 }
 
-/* photo */
-
-.Photography{
+/* -photo */
+.Photography {
     padding-top: 100px;
 }
 
