@@ -674,18 +674,6 @@ Icon for all respective meta
 }
 
 
-.group2 {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 100px 0;
-}
-
-.group2 h2 {
-    padding-bottom: 30px;
-    width: 100%;
-}
-
-
 .works-item1 {
     background-image: url(../images/artwork_1.png), url(../images/artwork_1_back.png);
 }
@@ -724,21 +712,53 @@ Icon for all respective meta
 }
 
 /* -sns */
+.group2 {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 100px 0;
+}
+
+.sns-main {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    margin: auto;
+}
+
+.sns-front {
+    position: absolute;
+    display: block;
+    z-index: -1;
+    width: 45%;
+    top: -1%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+}
+
+.group2 h2 {
+    padding-bottom: 30px;
+    width: 100%;
+}
+
 .snsbox img {
     display: block;
 }
 
-.swiper {
-    max-width: 600px;
-    margin-left: auto;
-    box-sizing: border-box;
+.sns-sub{
+    position: absolute;
+    top: -2%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 38.7%;
 }
 
 .slide-counter {
     mix-blend-mode: multiply;
     position: absolute;
     top: 25px;
-    right: 25px;
+    right: 3%;
     padding: 4px 12px;
     background: rgba(51, 51, 51, 0.8);
     border-radius: 9999px;
@@ -747,19 +767,65 @@ Icon for all respective meta
     z-index: 10;
 }
 
-.snsbox2 {
-    display: flex;
-}
-
 .snsbox {
-    background-color: #bbb;
+    margin-top: 230px;
+    position: relative;
 }
 
-.sns-padding{
+.drag-ani {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 13;
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    z-index: 10;
+    pointer-events: none;
+    transform: translate(-50%);
+    background-color: rgba(51, 51, 51, 0.6);
+}
+
+.hint-icon {
+    animation: swipeMotion 1.2s infinite;
+    width: 64px;
+    height: auto;
+}
+
+.hint-text {
+    font-size: 16px;
+    color: #fff;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+@keyframes swipeMotion {
+  0% {
+    transform: translateX(50%) scale(1);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) scale(0.95);
+    opacity: 0;
+  }
+}
+
+.sns-padding {
+    display: none;
     padding: 10px 0;
 }
 
-.snsbox img{
+.snsbox img {
     display: block;
 }
 

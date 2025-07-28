@@ -5,6 +5,121 @@
 	}
 }
 
+/* sns 조정 */
+@media (min-width : 400px) and (max-width : 440px) {
+	.sns-main {
+		height: 462px;
+	}
+
+	.sns-front {
+		width: 70%;
+	}
+
+	.sns-sub {
+		width: 60%;
+		top: -25%;
+	}
+}
+
+@media (min-width : 441px) and (max-width : 463px) {
+	.sns-main {
+		height: 526px;
+	}
+
+	.sns-front {
+		width: 70%;
+	}
+
+	.sns-sub {
+		width: 60%;
+		top: -20%;
+	}
+}
+
+
+@media (min-width : 464px) and (max-width : 498px) {
+	.sns-main {
+		height: 526px;
+	}
+
+	.sns-front {
+		width: 70%;
+	}
+
+	.sns-sub {
+		width: 60%;
+		top: -19%;
+	}
+}
+
+@media (min-width : 499px) and (max-width : 539px) {
+	.sns-main {
+		height: 565px;
+	}
+
+	.sns-front {
+		width: 70%;
+	}
+
+	.sns-sub {
+		width: 60%;
+		top: -16%;
+	}
+}
+
+@media (min-width : 540px) and (max-width : 601px) {
+	.sns-main {
+		height: 565px;
+	}
+
+	.sns-front {
+		width: 70%;
+	}
+
+	.sns-sub {
+		width: 60%;
+		top: -14%;
+	}
+}
+
+@media (min-width : 602px) and (max-width : 649px) {
+	.sns-main {
+		height: 565px;
+	}
+
+	.sns-front {
+		width: 70%;
+	}
+
+	.sns-sub {
+		width: 60%;
+		top: -11%;
+	}
+}
+
+@media (min-width : 650px) and (max-width : 730px) {
+	.sns-main {
+		height: 602px;
+	}
+
+	.sns-front {
+		width: 70%;
+	}
+
+	.sns-sub {
+		width: 60%;
+		top: -8%;
+	}
+}
+
+@media (min-width : 730px) and (max-width : 767px) {
+	.sns-sub {
+		top: -12%;
+	}
+}
+
+/* sns 조정 */
+
 /* Extra small devices (phones, less than 768px) */
 @media (max-width : 766px) {
 	.intro h1 {
@@ -46,6 +161,7 @@
 
 	ul.list-check li {
 		width: 100%;
+		padding: 5px 7px;
 	}
 
 	.download-button .btn {
@@ -196,6 +312,7 @@
 	}
 
 }
+
 
 /* Landscape Mobile */
 @media only screen and (min-width : 480px) and (max-width : 767px) {
@@ -359,8 +476,6 @@
 		font-size: 14px;
 		margin-right: 20px;
 	}
-
-
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -508,6 +623,19 @@
 		flex: 1;
 	}
 
+
+	.sns-sub {
+		top: -12%;
+	}
+
+}
+
+/* sns박스 */
+@media (min-width : 991px) and (max-width : 1199px) {
+
+	.sns-sub {
+		top: -7%;
+	}
 }
 
 /* Medium devices (desktops, 992px and up) */
