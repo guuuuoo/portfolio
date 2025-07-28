@@ -205,6 +205,18 @@ var swiper2 = new Swiper(".snsbox2", {
     }
 });
 
+const swiperContainer = document.querySelector(".swiper");
+const swipeHint = document.getElementById("swipeHint");
+
+swiperContainer.addEventListener("click", () => {
+    swipeHint?.remove();
+});
+
+swiperContainer.addEventListener("touchstart", () => {
+    swipeHint?.remove();
+});
+
+
 //---------------------------------------------------------------
 //Artworks -Photography
 //---------------------------------------------------------------
